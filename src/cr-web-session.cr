@@ -39,7 +39,8 @@ post "/query" do |env|
       # Set entry TTL to what was given in the request or return current TTL
       ttl = 0
       if env.params.json["expire"]? && env.params.json["expire"].is_a?(Number)
-        redis.expire(prefix+key, env.params.json["expire"].as(Number))
+        ttl = env.params.json["expire"].as(Number)
+        redis.expire(prefix+key, ttl)
       else
         ttl = redis.ttl(prefix+key)
       end
