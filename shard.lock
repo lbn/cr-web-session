@@ -12,6 +12,10 @@ shards:
     github: RX14/multipart.cr
     version: 0.1.0
 
+  protobuf:
+    github: jeromegn/protobuf.cr
+    version: 2.0.3
+
   radix:
     github: luislavena/radix
     version: 0.3.1
