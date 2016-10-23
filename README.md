@@ -6,11 +6,19 @@ The purpose of this project is mostly to learn Crystal.
 ## Installation
 ```sh
 crystal deps
+crystal build src/protoc-gen-crystal
+make protoc
 crystal build src/cr-web-session.cr
 sudo mv cr-web-session /usr/local/bin
 ```
 
 ## Usage
+### protobuf
+```sh
+http POST localhost:3000/save < example/entry.pb # has key f8
+http POST localhost:3000/query key=f8 # entry only at the moment, no TTL
+```
+### JSON
 ```js
 $ cat test.json 
 {
@@ -62,6 +70,8 @@ X-Powered-By: Kemal
 Make sure Redis is installed and running on the default host and port.
 ```sh
 crystal deps
+crystal build src/protoc-gen-crystal
+make protoc
 crystal run src/cr-web-session.cr
 ```
 
